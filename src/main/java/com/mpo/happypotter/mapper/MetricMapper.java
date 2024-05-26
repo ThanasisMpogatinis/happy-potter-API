@@ -3,7 +3,6 @@ package com.mpo.happypotter.mapper;
 import com.google.cloud.Timestamp;
 import com.mpo.happypotter.model.dto.AddMetricDTO;
 import com.mpo.happypotter.model.entity.Metric;
-
 import java.util.UUID;
 
 public class MetricMapper {

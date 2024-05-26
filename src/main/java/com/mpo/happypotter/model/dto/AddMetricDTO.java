@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class AddMetricDTO {
+
     private String macID;
     private float soilMoisture;
     private float brightness;

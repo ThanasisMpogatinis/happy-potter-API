@@ -3,7 +3,6 @@ package com.mpo.happypotter.mapper;
 import com.google.cloud.Timestamp;
 import com.mpo.happypotter.model.dto.CreateUserDTO;
 import com.mpo.happypotter.model.entity.UserDetails;
-
 import java.util.List;
 import java.util.UUID;
 
