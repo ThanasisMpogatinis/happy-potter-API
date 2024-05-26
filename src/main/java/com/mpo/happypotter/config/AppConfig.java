@@ -7,5 +7,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @EnableConfigurationProperties(AppProperties.class)
-public class AppConfig {
-}
+public class AppConfig {}

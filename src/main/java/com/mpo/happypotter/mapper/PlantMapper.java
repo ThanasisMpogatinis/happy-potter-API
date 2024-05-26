@@ -3,7 +3,6 @@ package com.mpo.happypotter.mapper;
 import com.google.cloud.Timestamp;
 import com.mpo.happypotter.model.dto.AddPlantDTO;
 import com.mpo.happypotter.model.entity.Plant;
-
 import java.util.UUID;
 
 public class PlantMapper {

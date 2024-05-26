@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Plant extends Entity {
+
     private String macID;
     private String name;
     private Timestamp createdAt;

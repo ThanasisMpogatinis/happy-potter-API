@@ -1,7 +1,8 @@
 package com.mpo.happypotter.service;
 
+import static com.mpo.happypotter.mapper.UserDetailsMapper.mapCreateUserDtoToUserDetails;
+
 import com.mpo.happypotter.model.dto.CreateUserDTO;
-import com.mpo.happypotter.mapper.UserDetailsMapper;
 import com.mpo.happypotter.model.entity.UserDetails;
 import com.mpo.happypotter.service.firebase.UserDetailsFirebaseService;
 import lombok.RequiredArgsConstructor;
@@ -15,11 +16,11 @@ public class UserDetailsService {
 
     public void createUser(CreateUserDTO createUserDTO) {
         //TODO validate username & email etc
-        final var userDetails = UserDetailsMapper.mapCreateUserDtoToUserDetails(createUserDTO);
+        final var userDetails = mapCreateUserDtoToUserDetails(createUserDTO);
         userDetailsFirebaseService.save(userDetails);
     }
 
     public UserDetails getUserDetails(String userId) {
         return userDetailsFirebaseService.getById(userId);
     }
- }
+}

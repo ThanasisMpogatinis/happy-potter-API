@@ -8,5 +8,4 @@ public enum PlantTypeEnum {
     PlantTypeEnum(String displayValue) {
         this.displayValue = displayValue;
     }
-
 }

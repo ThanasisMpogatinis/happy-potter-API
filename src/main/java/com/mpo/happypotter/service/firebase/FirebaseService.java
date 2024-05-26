@@ -4,17 +4,13 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.firebase.cloud.FirestoreClient;
 import com.mpo.happypotter.model.entity.Entity;
-import com.mpo.happypotter.model.entity.Metric;
 import com.mpo.happypotter.model.enums.CollectionEnum;
 import com.mpo.happypotter.validator.SaveDataValidator;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
@@ -25,10 +21,10 @@ public class FirebaseService {
         try {
             final var firestore = FirestoreClient.getFirestore();
             firestore
-                    .collection(collection.name())
-                    .document(entity.getId())
-                    .set(entity)
-                    .get();
+                .collection(collection.name())
+                .document(entity.getId())
+                .set(entity)
+                .get();
         } catch (ExecutionException | InterruptedException e) {
             log.info("Failure during save :" + Arrays.toString(e.getStackTrace()));
         }
@@ -37,11 +33,7 @@ public class FirebaseService {
     protected List<QueryDocumentSnapshot> getAllData(CollectionEnum collection) {
         try {
             final var firestore = FirestoreClient.getFirestore();
-            return firestore
-                    .collection(collection.name())
-                    .get()
-                    .get()
-                    .getDocuments();
+            return firestore.collection(collection.name()).get().get().getDocuments();
         } catch (ExecutionException | InterruptedException e) {
             log.info("Failure during getAll :" + Arrays.toString(e.getStackTrace()));
             return List.of();
@@ -51,15 +43,10 @@ public class FirebaseService {
     protected DocumentSnapshot getById(CollectionEnum collection, String id) {
         try {
             final var firestore = FirestoreClient.getFirestore();
-            return firestore
-                    .collection(collection.name())
-                    .document(id)
-                    .get()
-                    .get();
+            return firestore.collection(collection.name()).document(id).get().get();
         } catch (ExecutionException | InterruptedException e) {
             log.info("Failure during getById :" + Arrays.toString(e.getStackTrace()));
             throw new RuntimeException("Not found"); //TODO
         }
     }
-
 }

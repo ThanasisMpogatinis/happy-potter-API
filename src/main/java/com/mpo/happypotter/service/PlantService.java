@@ -1,7 +1,7 @@
 package com.mpo.happypotter.service;
 
-import com.mpo.happypotter.model.dto.AddPlantDTO;
 import com.mpo.happypotter.mapper.PlantMapper;
+import com.mpo.happypotter.model.dto.AddPlantDTO;
 import com.mpo.happypotter.model.entity.Plant;
 import com.mpo.happypotter.model.entity.UserDetails;
 import com.mpo.happypotter.model.enums.ErrorEnum;
@@ -27,9 +27,13 @@ public class PlantService {
     }
 
     private void checkIfMacAlreadyExists(UserDetails userDetails, String macID) {
-        final var exists = userDetails.getPlants().stream()
-                .map(Plant::getMacID)
-                .anyMatch(id -> id.equals(macID));
-        if (exists) throw new RuntimeException(ErrorEnum.MAC_ID_ALREADY_IN_USER.description); //TODO
+        final var exists = userDetails
+            .getPlants()
+            .stream()
+            .map(Plant::getMacID)
+            .anyMatch(id -> id.equals(macID));
+        if (exists) throw new RuntimeException(
+            ErrorEnum.MAC_ID_ALREADY_IN_USER.description
+        ); //TODO
     }
- }
+}
