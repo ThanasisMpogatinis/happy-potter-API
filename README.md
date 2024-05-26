@@ -80,3 +80,10 @@ In order to get the user's details we can
 ```bash
  [GET] localhost:8082/api/v1/user?id=_users_id_
 ```
+
+## Swagger
+Navigate to
+```bash
+ http://localhost:8082/swagger-ui/index.html#/
+```
+to check the API's endpoints and schemas
